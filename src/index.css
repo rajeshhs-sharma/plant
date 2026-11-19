@@ -1,0 +1,47 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Bricolage Grotesque", "Noto Sans Kannada", system-ui, sans-serif;
+  --font-sans: "Plus Jakarta Sans", "Noto Sans Kannada", system-ui, -apple-system, sans-serif;
+  --font-kannada: "Noto Sans Kannada", "Plus Jakarta Sans", system-ui, sans-serif;
+}
+
+@layer base {
+  html {
+    font-family: var(--font-sans);
+    scroll-behavior: smooth;
+  }
+
+  h1, h2, h3, .font-display {
+    font-family: var(--font-display);
+  }
+}
+
+.font-kannada {
+  font-family: var(--font-kannada);
+  line-height: 1.65;
+}
+
+@keyframes scan-sweep {
+  0%, 100% {
+    transform: translateY(0%);
+    opacity: 0.75;
+  }
+  50% {
+    transform: translateY(100%);
+    opacity: 1;
+  }
+}
+
+.animate-scan-sweep {
+  animation: scan-sweep 2.4s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-scan-sweep {
+    animation: none;
+  }
+  html {
+    scroll-behavior: auto;
+  }
+}
